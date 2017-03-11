@@ -1,10 +1,13 @@
-﻿var game = new Phaser.Game(1200, 675, Phaser.AUTO, "gameDiv");
+﻿var Phaser = Phaser || {};
+var Navecitas = Navecitas || {};
 
-game.state.add("boot", bootState);
-game.state.add("load", loadState);
-game.state.add("menu", menuState);
-game.state.add("play", playState);
-game.state.add("win", winState);
-game.state.add("lose", loseState);
+var game = new Phaser.Game(1200, 675, Phaser.CANVAS, "");
 
-game.state.start("boot");
+game.state.add("BootState", new Navecitas.BootState());
+game.state.add("LoadState", new Navecitas.LoadState());
+game.state.add("MenuState", new Navecitas.MenuState());
+game.state.add("PlayState", new Navecitas.PlayState());
+game.state.add("WinState", new Navecitas.WinState());
+game.state.add("LoseState", new Navecitas.LoseState());
+
+game.state.start("BootState");

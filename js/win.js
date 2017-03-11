@@ -1,24 +1,37 @@
-﻿var winState = {
+﻿var Navecitas = Navecitas || {};
 
-  create: function () {
-    var winLabel = game.add.text(80, 80, "Ganaste :D!", { font: "50px Arial", fill: "#222" });
+Navecitas.WinState = function () {
+  "use strict";
+  Phaser.State.call(this);
+};
 
-    var restartLabel = game.add.text(80, game.world.height - 80, "Presiona [R] para volver a jugar", { font: "25px Arial", fill: "#333" });
+Navecitas.prototype = Object.create(Phaser.State.prototype);
+Navecitas.prototype.constructor = Navecitas.WinState;
 
-    var rkey = game.input.keyboard.addKey(Phaser.Keyboard.R);
+Navecitas.WinState.prototype.create = function () {
+  "use strict";
+  var winLabel = this.game.add.text(80, 80, "Ganaste :D!", 
+                                    { font: "50px Arial", fill: "#222" });
 
-    rkey.onDown.addOnce(this.restart, this);
+  var restartLabel = this.game.add.text(80, this.game.world.height - 80, 
+                                        "Presiona [R] para volver a jugar", 
+                                        { font: "25px Arial", fill: "#333" });
 
-    this.player = game.add.sprite(game.world.width / 2, game.world.height / 2, "player");
-    this.player.anchor.setTo(0.5);
-  },
+  var rkey = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
 
-  update: function () {
-    this.player.rotation += .15;
-  },
+  rkey.onDown.addOnce(this.restart, this);
 
-  restart: function () {
-      game.state.start("play");
-  }
+  this.player = this.game.add.sprite(this.game.world.width / 2,
+                                      game.world.height / 2, "player");
+  this.player.anchor.setTo(0.5);
+};
 
+Navecitas.WinState.prototype.update = function () {
+  "use strict";
+  this.player.rotation += .15;
+};
+
+Navecitas.WinState.prototype.restart = function () {
+  "use strict";
+  this.game.state.start("PlayState");
 };

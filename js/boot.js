@@ -1,14 +1,23 @@
-﻿var bootState = {
-    create: function () {
-        game.physics.startSystem(Phaser.Physics.ARCADE);
-        game.renderer.renderSession.roundPixels = true;
+﻿var Navecitas = Navecitas || {};
 
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        //game.scale.pageAlignHorizontally = true;
-        //game.scale.pageAlignVertically = true;
+Navecitas.BootState = function () {
+  "use strict";
+  Phaser.State.call(this);
+};
 
-        game.stage.backgroundColor = "#4e5dff";
+Navecitas.prototype = Object.create(Phaser.State.prototype);
+Navecitas.prototype.constructor = Navecitas.BootState;
+  
+Navecitas.BootState.prototype.create = function () {
+  "use strict";
+  this.game.physics.startSystem(Phaser.Physics.ARCADE);
+  this.game.renderer.renderSession.roundPixels = true;
 
-        game.state.start("load");
-    }
+  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+  this.game.scale.pageAlignHorizontally = true;
+  this.game.scale.pageAlignVertically = true;
+
+  this.game.stage.backgroundColor = "#4e5dff";
+
+  this.game.state.start("LoadState");
 };

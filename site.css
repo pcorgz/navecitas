@@ -1,23 +1,13 @@
 ﻿* {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
 }
 
 html, body {
     height: 100%;
+    margin: 0;
 }
 
 body {
     background-color: #333;
-}
-
-#gameDiv {
-    margin: 0 auto;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-#gameDiv > canvas {
-    margin: 0 auto !important;
 }
