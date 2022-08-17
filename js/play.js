@@ -74,7 +74,7 @@ Navecitas.PlayState.prototype.create = function () {
                                         "Score: " + this.player.score);
 
   this.shotSound = this.game.add.audio("shot");
-  this.shotSound.volume = 1;
+  this.shotSound.volume = .5;
 
   //var btnUp = this.game.add.button(100, this.game.world.height - 250, "arrowup", null, this);
   //btnUp.scale.setTo(0.25, 0.25);
